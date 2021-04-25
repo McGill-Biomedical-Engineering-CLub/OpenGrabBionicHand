@@ -1,5 +1,5 @@
 # Bill of Material
-| Item | Quantity | Unit |Cost per unit| Cost|Notes
+| Item | Quantity | Unit |Cost per unit ($CAD)| Cost ($CAD)|Notes
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | 
 |3D printing Filament for PLA|	1|	per kg|	32.00|	32.00	|All the 3D components are included here.|
 |7.4V Rechargable LiPo Battery| 	1|	each|	20.00|	20.00|	
