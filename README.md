@@ -66,7 +66,7 @@ Unlike that of the Myoware sensor, the signal obtained from the analog reading o
  
 Example of Raw Signal
 
-![image](https://user-images.githubusercontent.com/46327849/87355213-fc945080-c52d-11ea-8499-ce0cb370cee9.png)
+![raw](https://user-images.githubusercontent.com/46327849/116008361-2365d400-a5e2-11eb-9345-707f2bcfe449.png)
 
 Differentiating a contraction from the resting phase visually in this noisy signal is still possible. However, there must be a systematic way that the software can use to easily distinguish between both phases. Hence, a variety of techniques must be used:
 1. Establishing a zero baseline: The raw signal has a resting-phase baseline that ranges between 280 and 350 units of amplitude (1 unit = 5V/1024). During calibration, the average value of this baseline is determined. Upon each subsequent reading, the absolute value of the difference between the raw reading and the baseline is calculated to obtain a 'normalized' signal reading.
@@ -77,8 +77,9 @@ Differentiating a contraction from the resting phase visually in this noisy sign
 Note: Frequency domain-based signal processing is not applicable to this iteration, as it requires a significant amount of memory. The Arduino Pro Mini total RAM memory is only 2048 Bytes, of which most are used for calibration and the LCD screen. 
 
 Example of Processed Signal
-![image](https://user-images.githubusercontent.com/46327849/87358647-3d8f6380-c534-11ea-8600-3583a0e50fb2.png)
+![final_sig](https://user-images.githubusercontent.com/46327849/116008395-498b7400-a5e2-11eb-8489-1a66b5b90883.png)
 
+As seen in the figure above, clear peaks can be identified in the signal, with each peak corresponding to a muscle contraction.
 
 ## Calibration 
 The function CalibrateDry is used mainly for this iteration. It is found in the Arm_Calibration.cpp file. 
