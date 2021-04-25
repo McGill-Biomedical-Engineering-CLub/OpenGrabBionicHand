@@ -124,31 +124,3 @@ The following flow chart summarizes the control scheme for 2 channel input contr
 
 
 ![image](https://user-images.githubusercontent.com/46327849/88865410-ce716a80-d1d5-11ea-95d3-fc7e5b8cd4f4.png)
-
-# Testing
-## Preliminary Testing
-Testing was done on 3 usage cycles (calibrate-operate-reset). The primary electrode was placed on the biceps muscle whereas the secondary electrode was placed on the Brachio Radialis muscle.
-Testing with PLA skin: 
-| Test | Round 1 | Round 2| Round 3 |
-| ------------- | ------------- | ------------- | ------------- | 
-| Resting Hand False Positives |    0   | 0  | 0 |
-| Moving Elbow False Positives |   0 |   0|  0|
-| Tapping Hand False Positives |    1  |   2 |1  |
-| 10 Contractions | 10/10 |  10/10 | 10/10 |
-| 10 Special Movement | 10/10 | 10 /10 | 10/10 |
-| 10 Contractions with hold | 10/10 | 10/10  | 10/10 |
-| Glass Cup Test (small glass)| 10/10|  10/10 | 10/10 |
-| Glass Cup Test (large glass)| 0/10|  0/10 | 0/10 |
-| Apple Test | 5/10 | 6/10 | 8/10 |
-Testing with Rubber Skin
-| Test | Round 1 | Round 2| Round 3 |
-| ------------- | ------------- | ------------- | ------------- | 
-| Resting Hand False Positives |    0   | 0  | 0 |
-| Moving Elbow False Positives |   1 |   0|  0|
-| Tapping Hand False Positives |    1  |   1 |1  |
-| 10 Contractions | 10/10 |  10/10 | 10/10 |
-| 10 Special Movement | 10/10 | 10 /10 | 10/10 |
-| 10 Contractions with hold | 10/10 | 10/10  | 10/10 |
-| Glass Cup Test (small glass)| 10/10|  10/10 | 10/10 |
-| Glass Cup Test (large glass)| 9/10|  10/10 | 10/10 |
-| Apple Test | 10/10 | 10/10 | 10/10 |
