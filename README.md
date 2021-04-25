@@ -32,10 +32,10 @@ Motor Consumption
 * Using an INA 219 current sensor, the current consumed by the motors is measured.
 
 | ------------- | ------------- | ------------- | ------------- |
-Hand State |	Average Motor Current Consumption (mA)	|Average Total Current Consumption (mA)	|Estimated Battery Operating Time (hr)|
-Idle Open |	41	|106	|20.75
-Idle Closed	|181	|246	|8.94
-Alternating	|456	|521	|4.22
+Hand State |	Average Motor Current Consumption (mA)	| Average Total Current Consumption (mA)	| Estimated Battery Operating Time (hr) |
+Idle Open |	41	| 106	| 20.75
+Idle Closed	| 181	| 246	| 8.94
+Alternating	| 456	| 521	| 4.22
 
 Motor Current Consumption Profile
 ![image](https://user-images.githubusercontent.com/46327849/116008511-f5cd5a80-a5e2-11eb-8701-b5cf0aeaeab0.png)
