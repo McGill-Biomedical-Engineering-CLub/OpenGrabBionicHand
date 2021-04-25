@@ -29,21 +29,16 @@ Non-Motor Components: (From Datasheets)
 |**Total**|7.3mA |64.4mA| | 
 
 Motor Consumption
-* Using an INA 219 current sensor, the current consumed by the motors is measured. 
+* Using an INA 219 current sensor, the current consumed by the motors is measured.
 
-|Servo Motors |  Idle Not Moving | Only Motors Moving| Hand Moving(peak) |   
-| ------------- | ------------- | ------------- | ------------- | 
-| 4 X PQ-12-63-6R Installed (Iteration 1 Model) | 13 mA | 150-600mA (avg 400mA)| Opening 1000-1200mA (avg 1100)      Closing 150-300mA (avg 250mA) | 1200 mA |
-| Duration | N/A | ~5s | 1.5s| 
-|  | |  |  | 
-|1 x HG-65 | 8mA | N/A | 950 mA (Motion consists of 3-4 peaks) | 
-| Duration | N/A | N/A | 250ms |
-|  | |  |  |
-| 5 x HG-65 Installed | |  |  | 
-|Duration  | |  |  |  
+| ------------- | ------------- | ------------- | ------------- |
+Hand State |	Average Motor Current Consumption (mA)	|Average Total Current Consumption (mA)	|Estimated Battery Operating Time (hr)|
+Idle Open |	41	|106	|20.75
+Idle Closed	|181	|246	|8.94
+Alternating	|456	|521	|4.22
 
-Current Consumption Profile for Brunel Hand
-![image](https://user-images.githubusercontent.com/46327849/87981702-ae3dff00-caa3-11ea-9063-4ec9636bc54a.png)
+Motor Current Consumption Profile
+![image](https://user-images.githubusercontent.com/46327849/116008511-f5cd5a80-a5e2-11eb-8701-b5cf0aeaeab0.png)
 Average Current Consumed When Used Actively :**420mA**
 
 * It is important to note that only motor current consumption was measured and consumption by other modules are not taken into consideration for this measurement, as the motors are the main source of current drainage. 
