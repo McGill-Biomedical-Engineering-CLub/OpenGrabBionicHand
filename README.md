@@ -28,18 +28,18 @@ Non-Motor Components: (From Datasheets)
 | Servo Controller | 2.2mA | 40mA | Datasheet: https://cdn-shop.adafruit.com/datasheets/PCA9685.pdf |
 |**Total**|7.3mA |64.4mA| | 
 
-Motor Consumption
-* Using an INA 219 current sensor, the current consumed by the motors is measured.
+Adding Motor Consumption
+
+Using an INA 219 current sensor, the current consumed by the motors is measured. This measurement is done on 3 different states of the arm: Idle Open, Idle Closed, and a continous alternation between both states. With a known battery capacity of 2200mAh, the battery life can be calculated.
 
 | Hand State |	Average Motor Current Consumption (mA)	| Average Total Current Consumption (mA)	| Estimated Battery Operating Time (hr) |
 | ------------- | ------------- | ------------- | ------------- |
 | Idle Open |	41	| 106	| 20.75 |
 | Idle Closed	| 181	| 246	| 8.94 |
-| Alternating	| 456	| 521	| 4.22 |
+| Alternating	| 456	| **521**	| **4.22** |
 
 Motor Current Consumption Profile
 ![image](https://user-images.githubusercontent.com/46327849/116008511-f5cd5a80-a5e2-11eb-8701-b5cf0aeaeab0.png)
-Average Current Consumed When Used Actively :**420mA**
 
 * It is important to note that only motor current consumption was measured and consumption by other modules are not taken into consideration for this measurement, as the motors are the main source of current drainage. 
 # Software System
