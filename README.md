@@ -3,7 +3,7 @@
 ### Date Delivered: September 1, 2020
 # Electronic Hardware System
 ## Circuit Schematic
-![image](https://user-images.githubusercontent.com/46327849/88864971-8aca3100-d1d4-11ea-8b2e-21e0b98a0e10.png)
+![image](https://user-images.githubusercontent.com/46327849/116008115-f36a0100-a5e0-11eb-8933-163737559d4a.png)
 
 ### Parts Used:
 * Arduino Pro Mini: Used to control all other electronics in the device. Receives analog input from the emg sensor and outputs commands to the servo shield and lcd screen via i2c communication. Datasheet: https://components101.com/microcontrollers/arduino-pro-mini
