@@ -77,6 +77,7 @@ Differentiating a contraction from the resting phase visually in this noisy sign
 Note: Frequency domain-based signal processing is not applicable to this iteration, as it requires a significant amount of memory. The Arduino Pro Mini total RAM memory is only 2048 Bytes, of which most are used for calibration and the LCD screen. 
 
 Example of Processed Signal
+
 ![final_sig](https://user-images.githubusercontent.com/46327849/116008395-498b7400-a5e2-11eb-8489-1a66b5b90883.png)
 
 As seen in the figure above, clear peaks can be identified in the signal, with each peak corresponding to a muscle contraction.
