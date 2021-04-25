@@ -1,9 +1,9 @@
 /*
-  Project Name: Bionic Arm Controller ver 1.4.0
+  Project Name: Bionic Arm Controller ver 1.3.0
   Authors: Abdullatif Hassan <abdullatif.hassan@mail.mcgill.ca>
            Theodore Janson
   Source Repository: https://github.com/Abdul099/Bionic-Arm-Controller
-  Last Updated: August 15, 2020
+  Last Updated: August 9, 2020
   Description: Arm Controller sketch that receives emg input via analog pin (up to 2 channels) and outputs PWM signals for up to 5 servo motors.
 */
 #include <Arm_Settings.h>
@@ -16,7 +16,6 @@
 #include <Arm_Demo.h>
 #include <Arm_Sampler.h>
 #include <Arm_Screen.h>
-#include <Arm_Bluetooth.h>
 
 int amp1;
 int amp2;
@@ -31,26 +30,21 @@ Arm_Demo demo = Arm_Demo();
 Arm_Sampler sampler = Arm_Sampler(emgpin1);
 Arm_Sampler sampler2 = Arm_Sampler(emgpin2);
 Arm_Screen screen = Arm_Screen();
-Arm_Bluetooth bluetooth = Arm_Bluetooth();
+
 void setup() {
   Wire.begin();
   Serial.begin(9600);
   if (NUM_CHANNELS == 1) thresh = Calibrate.CalibrateDry(&baseline);
   else if (NUM_CHANNELS == 2) thresh = Calibrate.CalibrateDry2Electrodes(&baseline, &baseline2);
   servo.setup();
-  bluetooth.setup();
   screen.prepare();
   sampler.setBaseline(baseline);
   if(NUM_CHANNELS ==2) sampler2.setBaseline(baseline2);
-  
 }
 
 void loop() {
-   byte special = bluetooth.getSpecialPosition();
-   Serial.print("Special: ");
-   Serial.println(special);
-   //Serial.print("1: ");
-   amp1 = sampler.simpleSample();//we start by reading the signal value from the emg sensor --> assign this value to amp
+//  Serial.print("1: ");
+  amp1 = sampler.simpleSample();//we start by reading the signal value from the emg sensor --> assign this value to amp
 //  Serial.print("2: ");
   if(NUM_CHANNELS  ==2) amp2 = sampler2.simpleSample();
   if (NUM_CHANNELS == 1)  opened = sampler.evaluateSampleFindPeak(amp1, thresh);
