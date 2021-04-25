@@ -3,7 +3,7 @@
 ### Date Delivered: September 1, 2020
 # Electronic Hardware System
 ## Circuit Schematic
-![image](https://user-images.githubusercontent.com/46327849/88864971-8aca3100-d1d4-11ea-8b2e-21e0b98a0e10.png)
+![image](https://user-images.githubusercontent.com/46327849/116008115-f36a0100-a5e0-11eb-8933-163737559d4a.png)
 
 ### Parts Used:
 * Arduino Pro Mini: Used to control all other electronics in the device. Receives analog input from the emg sensor and outputs commands to the servo shield and lcd screen via i2c communication. Datasheet: https://components101.com/microcontrollers/arduino-pro-mini
@@ -28,23 +28,18 @@ Non-Motor Components: (From Datasheets)
 | Servo Controller | 2.2mA | 40mA | Datasheet: https://cdn-shop.adafruit.com/datasheets/PCA9685.pdf |
 |**Total**|7.3mA |64.4mA| | 
 
-Motor Consumption
-* Using an INA 219 current sensor, the current consumed by the motors is measured. 
+Adding Motor Consumption
 
-|Servo Motors |  Idle Not Moving | Only Motors Moving| Hand Moving(peak) |   
-| ------------- | ------------- | ------------- | ------------- | 
-| 4 X PQ-12-63-6R Installed (Iteration 1 Model) | 13 mA | 150-600mA (avg 400mA)| Opening 1000-1200mA (avg 1100)      Closing 150-300mA (avg 250mA) | 1200 mA |
-| Duration | N/A | ~5s | 1.5s| 
-|  | |  |  | 
-|1 x HG-65 | 8mA | N/A | 950 mA (Motion consists of 3-4 peaks) | 
-| Duration | N/A | N/A | 250ms |
-|  | |  |  |
-| 5 x HG-65 Installed | |  |  | 
-|Duration  | |  |  |  
+Using an INA 219 current sensor, the current consumed by the motors is measured. This measurement is done on 3 different states of the arm: Idle Open, Idle Closed, and a continous alternation between both states. With a known battery capacity of 2200mAh, the battery life can be calculated.
 
-Current Consumption Profile for Brunel Hand
-![image](https://user-images.githubusercontent.com/46327849/87981702-ae3dff00-caa3-11ea-9063-4ec9636bc54a.png)
-Average Current Consumed When Used Actively :**420mA**
+| Hand State |	Average Motor Current Consumption (mA)	| Average Total Current Consumption (mA)	| Estimated Battery Operating Time (hr) |
+| ------------- | ------------- | ------------- | ------------- |
+| Idle Open |	41	| 106	| 20.75 |
+| Idle Closed	| 181	| 246	| 8.94 |
+| Alternating	| 456	| **521**	| **4.22** |
+
+Motor Current Consumption Profile
+![image](https://user-images.githubusercontent.com/46327849/116008511-f5cd5a80-a5e2-11eb-8701-b5cf0aeaeab0.png)
 
 * It is important to note that only motor current consumption was measured and consumption by other modules are not taken into consideration for this measurement, as the motors are the main source of current drainage. 
 # Software System
@@ -66,7 +61,7 @@ Unlike that of the Myoware sensor, the signal obtained from the analog reading o
  
 Example of Raw Signal
 
-![image](https://user-images.githubusercontent.com/46327849/87355213-fc945080-c52d-11ea-8499-ce0cb370cee9.png)
+![raw](https://user-images.githubusercontent.com/46327849/116008361-2365d400-a5e2-11eb-9345-707f2bcfe449.png)
 
 Differentiating a contraction from the resting phase visually in this noisy signal is still possible. However, there must be a systematic way that the software can use to easily distinguish between both phases. Hence, a variety of techniques must be used:
 1. Establishing a zero baseline: The raw signal has a resting-phase baseline that ranges between 280 and 350 units of amplitude (1 unit = 5V/1024). During calibration, the average value of this baseline is determined. Upon each subsequent reading, the absolute value of the difference between the raw reading and the baseline is calculated to obtain a 'normalized' signal reading.
@@ -77,8 +72,10 @@ Differentiating a contraction from the resting phase visually in this noisy sign
 Note: Frequency domain-based signal processing is not applicable to this iteration, as it requires a significant amount of memory. The Arduino Pro Mini total RAM memory is only 2048 Bytes, of which most are used for calibration and the LCD screen. 
 
 Example of Processed Signal
-![image](https://user-images.githubusercontent.com/46327849/87358647-3d8f6380-c534-11ea-8600-3583a0e50fb2.png)
 
+![final_sig](https://user-images.githubusercontent.com/46327849/116008395-498b7400-a5e2-11eb-8489-1a66b5b90883.png)
+
+As seen in the figure above, clear peaks can be identified in the signal, with each peak corresponding to a muscle contraction.
 
 ## Calibration 
 The function CalibrateDry is used mainly for this iteration. It is found in the Arm_Calibration.cpp file. 
@@ -124,31 +121,3 @@ The following flow chart summarizes the control scheme for 2 channel input contr
 
 
 ![image](https://user-images.githubusercontent.com/46327849/88865410-ce716a80-d1d5-11ea-95d3-fc7e5b8cd4f4.png)
-
-# Testing
-## Preliminary Testing
-Testing was done on 3 usage cycles (calibrate-operate-reset). The primary electrode was placed on the biceps muscle whereas the secondary electrode was placed on the Brachio Radialis muscle.
-Testing with PLA skin: 
-| Test | Round 1 | Round 2| Round 3 |
-| ------------- | ------------- | ------------- | ------------- | 
-| Resting Hand False Positives |    0   | 0  | 0 |
-| Moving Elbow False Positives |   0 |   0|  0|
-| Tapping Hand False Positives |    1  |   2 |1  |
-| 10 Contractions | 10/10 |  10/10 | 10/10 |
-| 10 Special Movement | 10/10 | 10 /10 | 10/10 |
-| 10 Contractions with hold | 10/10 | 10/10  | 10/10 |
-| Glass Cup Test (small glass)| 10/10|  10/10 | 10/10 |
-| Glass Cup Test (large glass)| 0/10|  0/10 | 0/10 |
-| Apple Test | 5/10 | 6/10 | 8/10 |
-Testing with Rubber Skin
-| Test | Round 1 | Round 2| Round 3 |
-| ------------- | ------------- | ------------- | ------------- | 
-| Resting Hand False Positives |    0   | 0  | 0 |
-| Moving Elbow False Positives |   1 |   0|  0|
-| Tapping Hand False Positives |    1  |   1 |1  |
-| 10 Contractions | 10/10 |  10/10 | 10/10 |
-| 10 Special Movement | 10/10 | 10 /10 | 10/10 |
-| 10 Contractions with hold | 10/10 | 10/10  | 10/10 |
-| Glass Cup Test (small glass)| 10/10|  10/10 | 10/10 |
-| Glass Cup Test (large glass)| 9/10|  10/10 | 10/10 |
-| Apple Test | 10/10 | 10/10 | 10/10 |
