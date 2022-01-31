@@ -151,11 +151,19 @@ Testing with Rubber Skin
 | Apple Test | 10/10 | 10/10 | 10/10 |
 ### Test Protocol Details
 Prior to each test: Install the Gravity EMG electrode on the Flexor Carpi Radialis Muscle location. Start the hand and calibrate it.
+
 Resting Hand False Positives: Remain at rest for 1 minute. Report the number of movements initiated from false positive readings.
+
 Moving Elbow False Positives: Similar procedure to Resting Hand False Positive Test. This test involves continously rotating the elbow slowly and reporting any false positives that occur within a minute.
+
 Tapping Hand False Positives: Similar procedure to Resting Hand False Positive. This test involves gently tapping the hand at locations ~3cm away from the electrode in a continous manner and reporting false positives within a minute. 
-10 Contractions: Perform 10 distinct contractions using the Flexor Carpi Radialis Muscle, once every 10 seconds. Report the number of successful hand movement responses to the muscle contractions. 
+
+10 Contractions: Perform 10 distinct contractions using the Flexor Carpi Radialis Muscle, once every 10 seconds. Report the number of successful hand movement responses to the muscle contractions.
+
 10 Special Movements: Before starting the device, add a second electrode on the Biceps Radii Muscle and change the electrode number setting to 2 in the settings.h file. Perform 10 distinct contractions using the Biceps Radii Muscle, once every 10 seconds. Report the number of successful special hand movement responses to the muscle contractions.
+
 10 Contractions with hold: Same protocol as the 10 Contractions test. Leave 30 seconds between 2 successive contractions. 
+
 Glass Cup Tests: Use the hand to pick up an empty glass cup, move it along a distance of 50cm, then lay it down at a specific target point. A glass cup weighing ~200g is used for the small glass and a cup weighing ~500g is used for the large glass. Perform this task 10 times and record the number of successful attempts.
+
 Apple Test: Use the hand to pick up an average size McIntosh Apple, move it along a horizontal distance of 50cm, then place it down on a target location. Perform this task 10 times and record the number of successful attempts.
